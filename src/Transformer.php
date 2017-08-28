@@ -73,7 +73,7 @@ class Transformer
             '%s%s,%s%s',
             $this->getBoundarySymbol($this->dateTimeRange->getLowerRange()->getBoundary()),
             $this->getRangeString($this->dateTimeRange->getLowerRange()),
-            $this->getRangeString($this->dateTimeRange->getUpperRange()),
+            $this->getRangeString($this->dateTimeRange->getUpperRange(), false),
             $this->getBoundarySymbol($this->dateTimeRange->getUpperRange()->getBoundary())
         );
     }
