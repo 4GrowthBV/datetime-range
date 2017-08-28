@@ -24,8 +24,8 @@ class Parser
      * @var string
      */
     private $pattern = '/^(\[|\()' .
-            '("\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}(.\d+)?\+\d{2}"|\-infinity|null|),' .
-            '("\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}(.\d+)?\+\d{2}"|infinity|null|)' .
+            '("\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}(.\d+)?\+\d{2,4}"|\-infinity|null|),' .
+            '("\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}(.\d+)?\+\d{2,4}"|infinity|null|)' .
         '(\]|\))$/i';
 
     /**
