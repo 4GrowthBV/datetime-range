@@ -62,4 +62,17 @@ class Boundary
     {
         $this->inclusive = $inclusive;
     }
+
+    /**
+     * Determines if the current boundary differs from the provided boundary. Returns true when differences are found.
+     * @param Boundary $boundary
+     * @return bool
+     */
+    public function diff(Boundary $boundary)
+    {
+        return (
+            $this->isLower() !== $boundary->isLower() ||
+            $this->isInclusive() !== $boundary->isInclusive()
+        );
+    }
 }

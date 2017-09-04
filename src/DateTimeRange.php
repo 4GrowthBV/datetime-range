@@ -62,4 +62,17 @@ class DateTimeRange
     {
         $this->upperRange = $upperRange;
     }
+
+    /**
+     * Determines if the provided range differs from the current. Returns true when differences are found.
+     * @param DateTimeRange $dateTimeRange
+     * @return bool
+     */
+    public function diff(DateTimeRange $dateTimeRange)
+    {
+        return (
+            $this->getLowerRange()->diff($dateTimeRange->getLowerRange()) ||
+            $this->getUpperRange()->diff($dateTimeRange->getUpperRange())
+        );
+    }
 }

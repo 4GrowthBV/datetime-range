@@ -91,4 +91,33 @@ class Range
     {
         $this->dateTime = $dateTime;
     }
+
+    /**
+     * Determines if the current range differs from the provided range. Returns true when differences are found.
+     * @param Range $range
+     * @return bool
+     */
+    public function diff(Range $range)
+    {
+        // Determine if both ranges are provided with a datetime
+        if (
+            (is_null($this->getDateTime()) && ! is_null($range->getDateTime())) ||
+            (! is_null($this->getDateTime()) && is_null($range->getDateTime()))
+        ) {
+            return true;
+        }
+
+        // Both ranges have datetimes, check if they are the same
+        if (! is_null($this->getDateTime()) && ! is_null($range->getDateTime()) && $this->getDateTime()->getTimestamp() !== $range->getDateTime()->getTimestamp()) {
+            return true;
+        }
+
+        // Determine if the boundaries differ
+        if ($this->getBoundary()->diff($range->getBoundary())) {
+            return true;
+        }
+
+        // Determine if the infinity values differ
+        return ($this->isInfinity() !== $range->isInfinity());
+    }
 }
