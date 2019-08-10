@@ -27,11 +27,11 @@ class Range
 
     /**
      * Range constructor.
-     * @param null $dateTime
+     * @param DateTime $dateTime
      * @param Boundary $boundary
      * @param bool $infinity
      */
-    public function __construct($dateTime = null, Boundary $boundary, $infinity = false)
+    public function __construct(DateTime $dateTime = null, Boundary $boundary, $infinity = false)
     {
         $this->setDateTime($dateTime);
         $this->setBoundary($boundary);
