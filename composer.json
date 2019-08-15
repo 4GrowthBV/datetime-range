@@ -1,23 +1,29 @@
 {
-	"name": "inthere/datetime-range",
-	"description": "Provides capabilities to parse or build tstzranges for Postgres databases",
-	"authors": [
-		{
-			"name": "D. van der Heiden",
-			"email": "d.vanderheiden@inthere.nl",
-			"homepage": "http://www.inthere.nl",
-			"role": "Developer"
-		}
-	],
-	"autoload": {
-		"psr-4": {
-			"InThere\\DateTimeRange\\": "src"
-		}
-	},
-	"require": {
-		
-	},
-	"require-dev": {
-		"phpunit/phpunit": "^5.7"
-	}
+    "name": "inthere/datetime-range",
+    "license": "MIT",
+    "description": "Provides capabilities to parse or build tstzranges for Postgres databases",
+    "authors": [
+        {
+            "name": "D. van der Heiden",
+            "email": "d.vanderheiden@inthere.nl",
+            "homepage": "http://www.inthere.nl",
+            "role": "Developer"
+        },
+        {
+            "name": "W. Klop",
+            "email": "w.klop@inthere.nl",
+            "homepage": "https://inthere.nl",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "InThere\\DateTimeRange\\": "src"
+        }
+    },
+    "require": {
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    }
 }
