@@ -23,7 +23,7 @@ class Transformer
      * Stores the DateTimeRange.
      * @param DateTimeRange $dateTimeRange
      */
-    private function setDateTimeRange(DateTimeRange $dateTimeRange)
+    private function setDateTimeRange(DateTimeRange $dateTimeRange): void
     {
         $this->dateTimeRange = $dateTimeRange;
     }
@@ -33,7 +33,7 @@ class Transformer
      * @param Boundary $boundary
      * @return string
      */
-    private function getBoundarySymbol(Boundary $boundary)
+    private function getBoundarySymbol(Boundary $boundary): string
     {
         if ($boundary->isInclusive() && $boundary->isLower()) {
             return '[';
@@ -54,7 +54,7 @@ class Transformer
      * @param bool $lower
      * @return string
      */
-    private function getRangeString(Range $range, $lower = true)
+    private function getRangeString(Range $range, bool $lower = true): string
     {
         if ($range->isInfinity()) {
             return sprintf('%sinfinity', $lower ? '-' : '');
@@ -67,7 +67,7 @@ class Transformer
      * Returns the DateTimeRange as string presentation.
      * @return string
      */
-    public function transform()
+    public function transform(): string
     {
         return sprintf(
             '%s%s,%s%s',
@@ -82,7 +82,7 @@ class Transformer
      * Returns the DateTimeRange as string presentation.
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->transform();
     }

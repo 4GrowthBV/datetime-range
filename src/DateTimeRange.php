@@ -31,7 +31,7 @@ class DateTimeRange
      * Returns the lower range.
      * @return Range
      */
-    public function getLowerRange()
+    public function getLowerRange(): Range
     {
         return $this->lowerRange;
     }
@@ -40,7 +40,7 @@ class DateTimeRange
      * Stores the lower range.
      * @param Range $lowerRange
      */
-    private function setLowerRange(Range $lowerRange)
+    private function setLowerRange(Range $lowerRange): void
     {
         $this->lowerRange = $lowerRange;
     }
@@ -49,7 +49,7 @@ class DateTimeRange
      * Returns the upper range.
      * @return Range
      */
-    public function getUpperRange()
+    public function getUpperRange(): Range
     {
         return $this->upperRange;
     }
@@ -58,7 +58,7 @@ class DateTimeRange
      * Stores the upper range.
      * @param Range $upperRange
      */
-    private function setUpperRange(Range $upperRange)
+    private function setUpperRange(Range $upperRange): void
     {
         $this->upperRange = $upperRange;
     }
@@ -68,7 +68,7 @@ class DateTimeRange
      * @param DateTimeRange $dateTimeRange
      * @return bool
      */
-    public function diff(DateTimeRange $dateTimeRange)
+    public function diff(DateTimeRange $dateTimeRange): bool
     {
         return (
             $this->getLowerRange()->diff($dateTimeRange->getLowerRange()) ||

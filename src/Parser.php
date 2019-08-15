@@ -33,7 +33,7 @@ class Parser
      * @param string $value
      * @param DateTimeZone $timeZone
      */
-    public function __construct($value, DateTimeZone $timeZone)
+    public function __construct(string $value, DateTimeZone $timeZone)
     {
         $this->setValue($value);
         $this->setDateTimeZone($timeZone);
@@ -42,7 +42,7 @@ class Parser
     /**
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
         return $this->value;
     }
@@ -50,7 +50,7 @@ class Parser
     /**
      * @param string $value
      */
-    private function setValue($value)
+    private function setValue(string $value): void
     {
         $this->value = $value;
     }
@@ -59,7 +59,7 @@ class Parser
      * Returns the timezone.
      * @return DateTimeZone
      */
-    public function getDateTimeZone()
+    public function getDateTimeZone(): DateTimeZone
     {
         return $this->dateTimeZone;
     }
@@ -68,7 +68,7 @@ class Parser
      * Stores the timezone.
      * @param DateTimeZone $timeZone
      */
-    public function setDateTimeZone(DateTimeZone $timeZone)
+    public function setDateTimeZone(DateTimeZone $timeZone): void
     {
         $this->dateTimeZone = $timeZone;
     }
@@ -93,7 +93,7 @@ class Parser
      * @param bool $lower
      * @return Boundary
      */
-    private function parseBoundary($boundarySymbol, $lower = true)
+    private function parseBoundary(string $boundarySymbol, bool $lower = true): Boundary
     {
         // Determine if the symbol is inclusive or exclusive (by default inclusive)
         $inclusive = ! in_array($boundarySymbol, ['(', ')']);
@@ -106,8 +106,9 @@ class Parser
      * @param string $rangeString
      * @param Boundary $boundary
      * @return Range
+     * @throws \Exception
      */
-    private function parseRangePart($rangeString, Boundary $boundary)
+    private function parseRangePart(string $rangeString, Boundary $boundary): Range
     {
         // Determines if the range is infinity or null (which will be handled as infinity and is presented as '')
         if (preg_match('/(infinity|null)/i', $rangeString) != false || empty($rangeString)) {
@@ -126,8 +127,9 @@ class Parser
     /**
      * Parses the dateTimeRange
      * @return null|DateTimeRange
+     * @throws \Exception
      */
-    public function parse()
+    public function parse(): ?DateTimeRange
     {
         // Parse the parts
         $parts = $this->parseParts();
