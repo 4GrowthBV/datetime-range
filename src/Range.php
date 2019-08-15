@@ -2,14 +2,13 @@
 
 namespace InThere\DateTimeRange;
 
-use DateTime;
-use DateTimeZone;
+use DateTimeInterface;
 
 class Range
 {
     /**
      * Holds the dateTime.
-     * @var null|DateTime
+     * @var null|DateTimeInterface
      */
     private $dateTime = null;
 
@@ -27,12 +26,13 @@ class Range
 
     /**
      * Range constructor.
-     * @param DateTime $dateTime
+     * @param DateTimeInterface|null $dateTime
      * @param Boundary $boundary
      * @param bool $infinity
      */
-    public function __construct(DateTime $dateTime = null, Boundary $boundary, $infinity = false)
+    public function __construct(?DateTimeInterface $dateTime = null, Boundary $boundary = null, bool $infinity = false)
     {
+        $boundary = $boundary ?? new Boundary();
         $this->setDateTime($dateTime);
         $this->setBoundary($boundary);
         $this->setInfinity($infinity);
@@ -42,7 +42,7 @@ class Range
      * Returns if the range is infinity.
      * @return bool
      */
-    public function isInfinity()
+    public function isInfinity(): bool
     {
         return $this->infinity;
     }
@@ -51,7 +51,7 @@ class Range
      * Stores if the range is infinity.
      * @param bool $infinity
      */
-    private function setInfinity($infinity)
+    private function setInfinity(bool $infinity): void
     {
         $this->infinity = $infinity;
     }
@@ -60,7 +60,7 @@ class Range
      * Returns the boundary.
      * @return Boundary
      */
-    public function getBoundary()
+    public function getBoundary(): Boundary
     {
         return $this->boundary;
     }
@@ -69,25 +69,25 @@ class Range
      * Stores the boundary.
      * @param Boundary $boundary
      */
-    private function setBoundary(Boundary $boundary)
+    private function setBoundary(Boundary $boundary): void
     {
         $this->boundary = $boundary;
     }
 
     /**
      * Returns the range value.
-     * @return null|DateTime
+     * @return null|DateTimeInterface
      */
-    public function getDateTime()
+    public function getDateTime(): ?DateTimeInterface
     {
         return $this->dateTime;
     }
 
     /**
      * Stores the range value.
-     * @param null|DateTime $dateTime
+     * @param null|DateTimeInterface $dateTime
      */
-    private function setDateTime(DateTime $dateTime = null)
+    private function setDateTime(?DateTimeInterface $dateTime = null): void
     {
         $this->dateTime = $dateTime;
     }
@@ -97,7 +97,7 @@ class Range
      * @param Range $range
      * @return bool
      */
-    public function diff(Range $range)
+    public function diff(Range $range): bool
     {
         // Determine if both ranges are provided with a datetime
         if (

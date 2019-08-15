@@ -21,7 +21,7 @@ class Boundary
      * @param bool $lower
      * @param bool $inclusive
      */
-    public function __construct($lower = true, $inclusive = true)
+    public function __construct(bool $lower = true, bool $inclusive = true)
     {
         $this->setLower($lower);
         $this->setInclusive($inclusive);
@@ -31,7 +31,7 @@ class Boundary
      * Returns if the boundary is lower (or upper).
      * @return bool
      */
-    public function isLower()
+    public function isLower(): bool
     {
         return $this->lower;
     }
@@ -40,7 +40,7 @@ class Boundary
      * Stores if the boundary is lower or upper.
      * @param bool $lower
      */
-    private function setLower($lower)
+    private function setLower(bool $lower): void
     {
         $this->lower = $lower;
     }
@@ -49,7 +49,7 @@ class Boundary
      * Returns if the boundary is inclusive (or exclusive).
      * @return bool
      */
-    public function isInclusive()
+    public function isInclusive(): bool
     {
         return $this->inclusive;
     }
@@ -58,7 +58,7 @@ class Boundary
      * Stores if the boundary is inclusive of exclusive.
      * @param bool $inclusive
      */
-    private function setInclusive($inclusive)
+    private function setInclusive(bool $inclusive): void
     {
         $this->inclusive = $inclusive;
     }
@@ -68,7 +68,7 @@ class Boundary
      * @param Boundary $boundary
      * @return bool
      */
-    public function diff(Boundary $boundary)
+    public function diff(Boundary $boundary): bool
     {
         return (
             $this->isLower() !== $boundary->isLower() ||
