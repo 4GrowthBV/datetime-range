@@ -14,12 +14,12 @@
             <directory>tests/unit</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist>
+    <coverage>
+        <include>
             <directory suffix=".php">src/</directory>
-        </whitelist>
-    </filter>
-    <logging>
-        <log type="coverage-html" target="build/coverage" charset="UTF-8" yui="true" highlight="true"/>
-    </logging>
+        </include>
+        <report>
+            <html outputDirectory="./build/coverage/"/>
+        </report>
+    </coverage>
 </phpunit>
